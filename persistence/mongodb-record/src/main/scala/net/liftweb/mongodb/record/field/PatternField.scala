@@ -62,7 +62,7 @@ class PatternField[OwnerType <: BsonRecord[OwnerType]](rec: OwnerType)
     case other => setBox(Failure("Error parsing String into a JValue: "+in))
   }
 
-  def toForm = Empty
+  def toForm: Box[NodeSeq] = Empty
 
   def asJs = asJValue match {
     case JNothing => JsNull
